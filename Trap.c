@@ -3,7 +3,7 @@ cat > a.c << EOF
 #include <mpi.h>
 #include <stdio.h>
 #include <math.h>
-#include <unistd.h>
+
 // Function to evaluate the curve (y = f(x))
 float f(float x) {
     return x * x ; // Example: y = x^2
@@ -37,7 +37,6 @@ int main(int argc, char** argv) {
     }
     
     start_time=MPI_Wtime();
-    sleep(0.5);
     // Broadcast the number of intervals to all processes
     MPI_Bcast(&n, 1, MPI_INT, 0, MPI_COMM_WORLD);
     
